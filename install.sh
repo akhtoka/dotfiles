@@ -45,8 +45,8 @@ deploy() {
         [ "$f" = ".gitignore" ] && continue
         [ "$f" = ".gitkeep" ] && continue
         
-        chmod +rwx "$f"
-        ln -s "$f" "$HOME"/"$f"
+        # chmod +rwx "$f"
+        ln -s $f $HOME/$f
     done
     echo "deploy"
 }
