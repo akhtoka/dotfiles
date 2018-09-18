@@ -37,13 +37,13 @@ deploy() {
     fi
 
     # 移動できたらリンクを実行する
+    ln -snfv .vimrc .config/nvim/init.vim
     for f in .??*
     do
         [ "$f" = ".git" ] && continue
         [ "$f" = ".DS_Store" ] && continue
 
         ln -snfv "$f" "$HOME"/"$f"
-        ln -snfv .vimrc .config/nvim/init.vim
     done
     echo "deploy"
 }
