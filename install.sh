@@ -37,7 +37,8 @@ deploy() {
     fi
 
     # 移動できたらリンクを実行する
-    ln -s .vimrc .config/nvim/init.vim
+    CURRENT_DIR=`pwd`
+    ln -s $CURRENT_DIR/.vimrc $CURRENT_DIR/.config/nvim/init.vim
     for f in .??*
     do
         [ "$f" = ".git" ] && continue
@@ -46,7 +47,7 @@ deploy() {
         [ "$f" = ".gitkeep" ] && continue
         
         # chmod +rwx "$f"
-        ln -s $f $HOME/$f
+        ln -s $CURRENT_DIR/$f $HOME/$f
     done
     echo "deploy"
 }
