@@ -26,7 +26,7 @@ deploy() {
 
     else
         echo "curl or wget required"
-        exit 1 
+        exit 1
     fi
 
     cd ~/.dotfiles
