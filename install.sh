@@ -41,6 +41,8 @@ deploy() {
     do
         [ "$f" = ".git" ] && continue
         [ "$f" = ".DS_Store" ] && continue
+        [ "$f" = ".gitignore" ] && continue
+        [ "$f" = ".gitkeep" ] && continue
 
         ln -snfv "$f" "$HOME"/"$f"
         ln -snfv .vimrc .config/nvim/init.vim
