@@ -2,6 +2,7 @@
 
 deploy() {
     #...
+    GITHUB_URL=https://github.com/tsumayoji/dotfiles.git
     DOTPATH=~/.dotfiles
 
     # git が使えるなら git
