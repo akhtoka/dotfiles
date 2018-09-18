@@ -62,6 +62,7 @@ set backspace=start,eol,indent
 set hlsearch
 set ambiwidth=double
 set clipboard+=unnamedplus
+set mouse=a
 
 colorscheme atom-dark 
 " set termguicolors
