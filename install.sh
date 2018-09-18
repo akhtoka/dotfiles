@@ -25,12 +25,14 @@ deploy() {
         mv -f dotfiles-master "$DOTPATH"
 
     else
-        exit "curl or wget required"
+        echo "curl or wget required"
+        exit 1 
     fi
 
     cd ~/.dotfiles
     if [ $? -ne 0 ]; then
-        exit "not found: $DOTPATH"
+        echo "not found: $DOTPATH"
+        exit 1
     fi
 
     # 移動できたらリンクを実行する
