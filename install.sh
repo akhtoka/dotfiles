@@ -44,7 +44,8 @@ deploy() {
         [ "$f" = ".DS_Store" ] && continue
         [ "$f" = ".gitignore" ] && continue
         [ "$f" = ".gitkeep" ] && continue
-
+        
+        chmod +rwx "$f"
         ln -snfv "$f" "$HOME"/"$f"
     done
     echo "deploy"
