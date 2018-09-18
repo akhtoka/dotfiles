@@ -43,7 +43,7 @@ deploy() {
         [ "$f" = ".DS_Store" ] && continue
 
         ln -snfv "$f" "$HOME"/"$f"
-        ln -snfv ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
+        ln -snfv .vimrc .config/nvim/init.vim
     done
     echo "deploy"
 }
