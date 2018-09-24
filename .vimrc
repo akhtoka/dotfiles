@@ -91,3 +91,8 @@ endif
 
 " terminal modenの設定
 tnoremap <silent> <ESC> <C-\><C-n>
+
+" keymapping 設定
+" Esc をCtrl + j に
+imap <C-j> <esc>
+noremap! <C-j> <esc>
