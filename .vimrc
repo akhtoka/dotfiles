@@ -64,7 +64,7 @@ set ambiwidth=double
 set clipboard+=unnamedplus
 set mouse=a
 
-colorscheme atom-dark 
+colorscheme tender
 " set termguicolors
 syntax on
 

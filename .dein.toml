@@ -26,6 +26,9 @@ repo = 'tomasr/molokai'
 repo = 'gosukiwi/vim-atom-dark'
 
 [[plugins]]
+repo = 'jacoborus/tender.vim'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
