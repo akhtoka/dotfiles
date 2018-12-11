@@ -4,7 +4,7 @@
 if &compatible
   set nocompatible
 endif
-set runtimepath+=/Users/a_oka/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " dein.vimのディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
