@@ -6,15 +6,16 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # User specific environment and startup programs
-
-PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.pyenv/shims
-
-export PATH
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.pyenv/shims
+export PATH=$PATH:$HOME/.nodebrew/current/bin
+export NODEBREW_ROOT=/usr/local/var/nodebrew
 
 export PATH=$PATH:$HOME/bin
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH" 
+export PYENV_ROOT=${HOME}/.pyenv
+export PATH=$PATH:$PYENV_ROOT/bin
 eval "$(pyenv init -)" 
+export PATH=/usr/local/bin:$PATH
+
 
 # git類読み込み
 source $HOME/.git-completion.bash
@@ -43,16 +44,12 @@ export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\W\[\033[1;31m\]\[\033[00
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/a_oka/google-cloud-sdk/path.bash.inc' ]; then source '/Users/a_oka/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/path.bash.inc' ]; then source '$HOME/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/a_oka/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/a_oka/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/completion.bash.inc' ]; then source '$HOME/google-cloud-sdk/completion.bash.inc'; fi
 
-##
-# Your previous /Users/a_oka/.bash_profile file was backed up as /Users/a_oka/.bash_profile.macports-saved_2018-06-06_at_12:35:01
-##
 
 # MacPorts Installer addition on 2018-06-06_at_12:35:01: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
-
