@@ -28,7 +28,7 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep anaconda3)/bin/python") || echo -n $(which python3)')
+let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep 3.)/bin/python") || echo -n $(which python3)')
 
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 call dein#update や call dein#clear_state を呼んでください。
