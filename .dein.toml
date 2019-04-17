@@ -237,3 +237,5 @@ hook_add = '''
       \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 '''
 
+[[plugins]]
+repo = 'posva/vim-vue'
