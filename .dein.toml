@@ -32,13 +32,6 @@ repo = 'jacoborus/tender.vim'
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
-hook_add = '''
-  let g:syntastic_python_checkers = ['pydocstyle', 'pycodestyle', 'pyflakes']
-  let g:python_highlight_all = 1
-'''
-
-[[plugins]]
 repo = 'davidhalter/jedi-vim'
 hook_add = '''
   let g:jedi#force_py_version = 3
@@ -65,16 +58,7 @@ hook_add = '''
 repo = 'zchee/deoplete-jedi'
 
 [[plugins]]
-repo = 'Shougo/neco-vim'
-
-[[plugins]]
-repo = 'Shougo/neco-syntax'
-
-[[plugins]]
 repo = 'ujihisa/neco-look'
-
-[[plugins]]
-repo = 'Vimjas/vim-python-pep8-indent'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -122,6 +106,7 @@ hook_add = '''
   nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
   let NERDTreeIgnore = ['\.pyc$']
 '''
+
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
@@ -183,10 +168,15 @@ hook_add = '''
   let g:ale_open_list = 0
   let g:ale_keep_list_window_open = 0
 
-  " 有効にするlinter
+  " flake8をLinterとして登録
   let g:ale_linters = {
-  \   'python': ['flake8'],
+  \   'python': ['flake8', 'pylint'],
   \}
+
+  " 各ツールをFixerとして登録
+  let g:ale_fixers = {
+  \ 'python': ['autopep8', 'black', 'isort'],
+  \ }
 
   " ALE用プレフィックス
   nmap [ale] <Nop>
@@ -194,6 +184,12 @@ hook_add = '''
   " エラー行にジャンプ
   nmap <silent> [ale]<C-P> <Plug>(ale_previous)
   nmap <silent> [ale]<C-N> <Plug>(ale_next)
+'''
+
+[[plugins]]
+repo = 'Vimjas/vim-python-pep8-indent'
+hook_add = '''
+  let g:python_pep8_indent_hang_closing = 1
 '''
 
 [[plugins]]

@@ -6,8 +6,23 @@ balias g git
 
 # neovim config dir
 set -gx XDG_CONFIG_HOME "$HOME/.config"
- 
+
 # pyenv settings
 eval (pyenv init - | source)
 eval (pyenv virtualenv-init - | source)
 set -x PYENV_ROOT (pyenv root)
+
+# User specific environment and startup programs
+set -x PATH $HOME/bin $PATH
+set -x PATH $HOME/.nodebrew/current/bin $PATH
+set -x NODEBREW_ROOT /usr/local/var/nodebrew
+
+# basebank PATH
+set -x PATH $HOME/work/basebank/bankdev-docker/bin $PATH
+
+# pipenv
+set -x PIPENV_VENV_IN_PROJECT 1
+
+# direnv
+set -x EDITOR nvim
+eval (direnv hook fish)

@@ -4,31 +4,43 @@
 if &compatible
   set nocompatible
 endif
+" (1) activateした仮想環境があればそちらを参照し、ない場合はデフォルトの仮想環境を参照
+if exists("$VIRTUAL_ENV")
+    let g:python3_host_prog = $VIRTUAL_ENV . '/bin/python'
+else
+    let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
+    " QuickRun実行時対応
+    let $PATH = $HOME . '/.pyenv/versions/neovim3/bin:' . $PATH
+endif
+
+" (2) 管理プラグイン「dein」を使用するための設定
+" Add the dein installation directory into runtimepath
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
-" dein.vimのディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-" なければgit clone
-if !isdirectory(s:dein_repo_dir)
-  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-endif
-execute 'set runtimepath^=' . s:dein_repo_dir
-
+ 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
-
-  " 管理するプラグインを記述したファイル
+  call dein#add(s:dein_repo_dir)
+   
+  " TOML を読み込み、キャッシュしておく
   let s:toml = '~/.dein.toml'
   let s:lazy_toml = '~/.dein_lazy.toml'
-  call dein#load_toml(s:toml, {'lazy': 0})
+  call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
+ 
+  " 設定終了
   call dein#end()
   call dein#save_state()
 endif
 
-let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep 3.)/bin/python") || echo -n $(which python3)')
+" for bash python_host path
+"set shell=/bin/sh
+"let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep 3.)/bin/python") || echo -n $(which python3)')
+" for fish shell python_host path
+"let g:python3_host_prog=system("type pyenv >/dev/null && echo -n (pyenv root)/versions/(pyenv global | grep 3.)/bin/python || echo -n (which python3)")
+"let g:python3_host_prog="/Users/akihitooka/.pyenv/versions/3.7.1/bin/python"
 
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 call dein#update や call dein#clear_state を呼んでください。
@@ -63,6 +75,7 @@ set hlsearch
 set ambiwidth=double
 set clipboard+=unnamedplus
 set mouse=a
+set binary noeol
 
 colorscheme tender
 " set termguicolors
