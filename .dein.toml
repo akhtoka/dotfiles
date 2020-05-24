@@ -235,3 +235,34 @@ hook_add = '''
 
 [[plugins]]
 repo = 'posva/vim-vue'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+hook_add = '''
+  let g:editorconfig#end_of_line = 'lf'
+  let g:editorconfig#insert_final_newline = 'true'
+'''
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+hook_add = '''
+  let g:terraform_fmt_on_save = 0
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+hook_add = '''
+  let g:lsp_settings_servers_dir = '~/.local/share/nvim/vim-lsp-settings/servers'
+'''

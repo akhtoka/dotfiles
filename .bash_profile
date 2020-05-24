@@ -11,11 +11,21 @@ export PATH=$PATH:$HOME/.nodebrew/current/bin
 export NODEBREW_ROOT=/usr/local/var/nodebrew
 
 export PATH=$PATH:$HOME/bin
+
+# pyenv PATH
 export PYENV_ROOT=${HOME}/.pyenv
 export PATH=$PATH:$PYENV_ROOT/bin
 eval "$(pyenv init -)" 
-export PATH=/usr/local/bin:$PATH
+eval "$(pyenv virtualenv-init -)"
+# export PATH=/usr/local/bin:$PATH
 
+# pipenv
+export PIPENV_VENV_IN_PROJECT=1
+
+# rbenv PATH
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # git類読み込み
 source $HOME/.git-completion.bash
