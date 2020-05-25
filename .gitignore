@@ -1,2 +1,19 @@
 .config/nvim/*
 !.gitkeep
+
+.DS_Store
+
+# karabiner	
+.config/karabiner/automatic_backups/
+
+# direnv
+.config/direnv/
+
+# astropy
+.config/astropy
+
+# configstore
+.config/configstore/
+
+# dask
+.config/dask/
