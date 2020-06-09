@@ -1,5 +1,5 @@
-.config/nvim/*
-!.gitkeep
+# nvim
+.config/nvim/.netrwhist
 
 .DS_Store
 
