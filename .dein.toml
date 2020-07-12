@@ -266,3 +266,9 @@ repo = 'mattn/vim-lsp-settings'
 hook_add = '''
   let g:lsp_settings_servers_dir = '~/.local/share/nvim/vim-lsp-settings/servers'
 '''
+
+[[plugins]]
+repo = 'bpearson/vim-phpcs'
+hook_add = '''
+  let g:ale_php_phpcs_standard = 'PSR2'
+'''

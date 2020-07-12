@@ -18,10 +18,14 @@ set -x PATH $HOME/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 set -x PATH $PATH /usr/local/bin
-set -x NODEBREW_ROOT /usr/local/var/nodebrew
+set -x PATH /usr/local/Cellar/awscli/2.0.19/bin $PATH
+set -x PATH $HOME/.config/composer/vendor/bin $PATH
+
+# baseinc PATH
+set -x PATH $HOME/src/github.com/baseinc/basedev-docker/bin $PATH
 
 # basebank PATH
-set -x PATH $HOME/work/basebank/bankdev-docker/bin $PATH
+set -x PATH $HOME/src/github.com/basebank/bankdev-docker/bin $PATH
 
 # pipenv
 set -x PIPENV_VENV_IN_PROJECT 1

@@ -17,3 +17,6 @@
 
 # dask
 .config/dask/
+
+# composer
+.config/composer/
