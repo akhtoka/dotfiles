@@ -94,12 +94,14 @@ if has("autocmd")
     autocmd FileType go   setlocal ts=4 sts=4 sw=4 noexpandtab
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType terraform setlocal ts=2 sts=2 sw=2 expandtab
 
     autocmd BufNewFile,BufRead *.rss setfiletype xml
     autocmd BufNewFile,BufRead *.psgi setfiletype perl
     autocmd BufNewFile,BufRead *.t setfiletype perl
     autocmd BufNewFile,BufRead *.psgi setfiletype perl
     autocmd BufNewFile,BufRead *.rst setfiletype rst
+    autocmd BufNewFile,BufRead *.tf setfiletype yaml
 endif
 
 " terminal modenの設定
@@ -112,12 +114,38 @@ noremap! <C-j> <esc>
 
 let mapleader = "\<Space>"
 
+" GO LSP
 if executable('go-langserver')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'go-langserver',
         \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
         \ 'whitelist': ['go'],
         \ })
+endif
+
+" pylsの設定。LinterのON/OFFなどが可能
+let s:pyls_config = {'pyls': {'plugins': {
+	  \ 'pycodestyle': {'enabled': v:true},
+	  \ 'pydocstyle': {'enabled': v:true},
+	  \ 'pylint': {'enabled': v:false},
+	  \ 'flake8': {'enabled': v:true},
+	  \ 'jedi_definition': {
+	  \   'follow_imports': v:true,
+	  \   'follow_builtin_imports': v:true,
+	  \ },
+	  \ }}}
+
+" pylsの起動定義
+if (executable('pyls'))
+	augroup LspPython
+		autocmd!
+		autocmd User lsp_setup call lsp#register_server({
+			\ 'name': 'pyls',
+			\ 'cmd': { server_info -> ['pyls'] },
+			\ 'whitelist': ['python'],
+			\ 'workspace_config': s:pyls_config
+			\})
+	augroup END
 endif
 
 nmap <silent> <Leader>d :LspDefinition<CR>

@@ -266,6 +266,17 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+  let g:lsp_signs_enabled = 1
+  let g:lsp_diagnostics_enabled = 1
+  let g:lsp_diagnostics_echo_cursor = 1
+  let g:lsp_highlights_enabled = 0
+  let g:lsp_highlight_references_enabled = 1
+  let g:lsp_textprop_enabled = 1
+  let g:lsp_virtual_text_enabled = 1
+  let g:lsp_signs_information = {'text': 'i'}
+  let g:lsp_signs_hint = {'text': '?'}
+'''
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'

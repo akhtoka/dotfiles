@@ -18,7 +18,7 @@ set -x PATH $HOME/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 set -x PATH $PATH /usr/local/bin
-set -x PATH /usr/local/Cellar/awscli/2.0.19/bin $PATH
+set -x PATH /usr/local/Cellar/awscli/2.0.30/bin $PATH
 set -x PATH $HOME/.config/composer/vendor/bin $PATH
 
 # baseinc PATH
