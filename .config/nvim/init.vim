@@ -19,12 +19,13 @@ set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
- 
+
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   call dein#add(s:dein_repo_dir)
    
   " TOML を読み込み、キャッシュしておく
+  let g:rc_dir    = $XDG_CONFIG_HOME . '/nvim/dein'
   let s:toml = '~/.dein.toml'
   let s:lazy_toml = '~/.dein_lazy.toml'
   call dein#load_toml(s:toml,      {'lazy': 0})
@@ -35,12 +36,6 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-" for bash python_host path
-"set shell=/bin/sh
-"let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep 3.)/bin/python") || echo -n $(which python3)')
-" for fish shell python_host path
-"let g:python3_host_prog=system("type pyenv >/dev/null && echo -n (pyenv root)/versions/(pyenv global | grep 3.)/bin/python || echo -n (which python3)")
-"let g:python3_host_prog="/Users/you/.pyenv/versions/3.7.1/bin/python"
 
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 call dein#update や call dein#clear_state を呼んでください。
@@ -90,6 +85,7 @@ if has("autocmd")
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType sql  setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType rst  setlocal ts=3 sts=3 sw=3 expandtab
     autocmd FileType go   setlocal ts=4 sts=4 sw=4 noexpandtab
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab

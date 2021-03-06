@@ -4,14 +4,15 @@ function fish_user_key_bindings
 end
 balias g git
 
-
 # neovim config dir
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 # pyenv settings
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH $PYENV_ROOT/bin $PATH:
+set -x PATH $PYENV_ROOT/shims $PATH
 eval (pyenv init - | source)
 eval (pyenv virtualenv-init - | source)
-set -x PYENV_ROOT (pyenv root)
 
 # User specific environment and startup programs
 set -x PATH $HOME/bin $PATH
