@@ -22,6 +22,11 @@ set -x PATH $PATH /usr/local/bin
 set -x PATH /usr/local/Cellar/awscli/2.0.30/bin $PATH
 set -x PATH $HOME/.config/composer/vendor/bin $PATH
 
+set -x PATH /usr/local/opt/php@7.3/bin $PATH
+set -x PATH /usr/local/opt/php@7.3/sbin $PATH
+
+
+
 # baseinc PATH
 set -x PATH $HOME/src/github.com/baseinc/basedev-docker/bin $PATH
 
@@ -38,3 +43,6 @@ eval (direnv hook fish)
 # set go path
 set -x GOPATH $HOME/go $GOPATH
 set -x PATH $GOPATH/bin $PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/akihitooka/google-cloud-sdk/path.fish.inc' ]; . '/Users/akihitooka/google-cloud-sdk/path.fish.inc'; end
