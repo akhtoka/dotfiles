@@ -20,3 +20,9 @@
 
 # composer
 .config/composer/
+
+# other
+.config/fish/completions/docker.fish
+.config/gcloud/
+.config/gh/
+.config/uv/

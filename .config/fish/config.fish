@@ -12,7 +12,7 @@ set -x PYENV_ROOT $HOME/.pyenv
 set -x PATH $PYENV_ROOT/bin $PATH:
 set -x PATH $PYENV_ROOT/shims $PATH
 eval (pyenv init - | source)
-eval (pyenv virtualenv-init - | source)
+# eval (pyenv virtualenv-init - | source)
 
 # User specific environment and startup programs
 set -x PATH $HOME/bin $PATH
@@ -21,17 +21,10 @@ set -x PATH $HOME/.nodebrew/current/bin $PATH
 set -x PATH $PATH /usr/local/bin
 set -x PATH /usr/local/Cellar/awscli/2.0.30/bin $PATH
 set -x PATH $HOME/.config/composer/vendor/bin $PATH
+set -x PATH $HOME/.docker/bin $PATH
 
 set -x PATH /usr/local/opt/php@7.3/bin $PATH
 set -x PATH /usr/local/opt/php@7.3/sbin $PATH
-
-
-
-# baseinc PATH
-set -x PATH $HOME/src/github.com/baseinc/basedev-docker/bin $PATH
-
-# basebank PATH
-set -x PATH $HOME/src/github.com/basebank/bankdev-docker/bin $PATH
 
 # pipenv
 set -x PIPENV_VENV_IN_PROJECT 1

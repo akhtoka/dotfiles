@@ -30,7 +30,7 @@ if dein#load_state(s:dein_dir)
   let s:lazy_toml = '~/.dein_lazy.toml'
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
- 
+
   " 設定終了
   call dein#end()
   call dein#save_state()
@@ -56,7 +56,6 @@ endif
 if dein#check_install()
   call dein#install()
 endif
-" }}}
 
 set tabstop=4
 set softtabstop=4
@@ -72,9 +71,17 @@ set clipboard+=unnamedplus
 set mouse=a
 set binary noeol
 
-colorscheme tender
-" set termguicolors
-syntax on
+" If you have vim >=8.0 or Neovim >= 0.1.5
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" For Neovim 0.1.3 and 0.1.4
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Theme
+syntax enable
+" colorscheme tender
 
 if has("autocmd")
     filetype on
